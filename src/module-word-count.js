@@ -2,29 +2,36 @@ class WordCount {
     constructor(quill, props) {
         this.quill = quill;
         this.props = props;
-        this.container = this.quill.container.parentNode.querySelector(props.container);
+        this.container = this.quill.container;
         this.quill.on('text-change', this.update.bind(this));
         this.update();  // Account for initial contents
     }
 
     calculate(){
-        var text = this.quill.getText();
-        if (this.props.unit === 'word') {
-            text = text.trim();
-            // Splitting empty text returns a non-empty array
-            return text.length > 0 ? text.split(/\s+/).length : 0;
-        } else {
-            return text.length;
-        }
+        let text = this.quill.getText();
+        text = text.trim();
+        // Splitting empty text returns a non-empty array
+        return text.length > 0 ? text.split(/\s+/).length : 0;
     }
 
     update() {
-        var length = this.calculate();
-        var label = this.props.unit;
+        let length = this.calculate();
+        let label = 'word';
         if (length !== 1) {
             label += 's';
         }
-        this.container.innerHTML = length + ' ' + label;
+
+        let countView = document.getElementById('quill-word-count');
+        if (!countView) {
+            let countView = document.createElement('span');
+            countView.id = 'quill-word-count';
+            this.container.appendChild(countView);
+            countView.innerHTML = length + ' ' + label;
+        }
+        else{
+            countView = document.getElementById('quill-word-count');
+            countView.innerHTML = length + ' ' + label;
+        }
     }
 }
 Quill.register('modules/wordCount', WordCount);

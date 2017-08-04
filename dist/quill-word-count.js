@@ -83,7 +83,7 @@ var WordCount = function () {
 
         this.quill = quill;
         this.props = props;
-        this.container = this.quill.container.parentNode.querySelector(props.container);
+        this.container = this.quill.container;
         this.quill.on('text-change', this.update.bind(this));
         this.update(); // Account for initial contents
     }
@@ -92,23 +92,29 @@ var WordCount = function () {
         key: 'calculate',
         value: function calculate() {
             var text = this.quill.getText();
-            if (this.props.unit === 'word') {
-                text = text.trim();
-                // Splitting empty text returns a non-empty array
-                return text.length > 0 ? text.split(/\s+/).length : 0;
-            } else {
-                return text.length;
-            }
+            text = text.trim();
+            // Splitting empty text returns a non-empty array
+            return text.length > 0 ? text.split(/\s+/).length : 0;
         }
     }, {
         key: 'update',
         value: function update() {
             var length = this.calculate();
-            var label = this.props.unit;
+            var label = 'word';
             if (length !== 1) {
                 label += 's';
             }
-            this.container.innerHTML = length + ' ' + label;
+
+            var countView = document.getElementById('quill-word-count');
+            if (!countView) {
+                var _countView = document.createElement('span');
+                _countView.id = 'quill-word-count';
+                this.container.appendChild(_countView);
+                _countView.innerHTML = length + ' ' + label;
+            } else {
+                countView = document.getElementById('quill-word-count');
+                countView.innerHTML = length + ' ' + label;
+            }
         }
     }]);
 
