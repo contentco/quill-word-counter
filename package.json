@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentco/quill-paste-handler.git"
+    "url": "git+https://github.com/contentco/quill-word-counter.git"
   },
   "keywords": [
     "content",
@@ -31,9 +31,9 @@
   "author": "Ye Min Htut",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/contentco/quill-paste-handler/issues"
+    "url": "https://github.com/contentco/contentco/quill-word-counter/issues"
   },
-  "homepage": "https://github.com/contentco/quill-paste-handler#readme",
+  "homepage": "https://github.com/contentco/contentco/quill-word-counter#readme",
   "dependencies": {
     "babel": "^6.23.0",
     "preact": "^7.2.0",

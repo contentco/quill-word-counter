@@ -4,51 +4,33 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://cdn.quilljs.com/1.2.2/quill.snow.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../dist/quill-mentions.css">
+        <link rel="stylesheet" type="text/css" href="../dist/quill-word-count.css">
     </head>
     <body>
-        <div class="container" style="position:relative;width:300px;float:right;">
-            <div style="height:800px;width:100%;background:#efefef;"></div>
-            <div id="quill-editor"></div>
+        <div class="container">
+            <div id="quill-editor" style="max-height: 400px;"></div>
+            <div id="counter"></div>
         </div>
         <script src="../node_modules/quill/dist/quill.js"></script>
-        <script src="../dist/quill-mentions.js"></script>
-        <!--<script src="../src/module-mentions.js"></script>-->
+        <script src="../dist/quill-word-count.js"></script>
+        <!--<script src="../src/module-word-count.js"></script>-->
         <script type="text/javascript">
+            // var quill = new Quill('#quill-editor');
+            // var counter = quill.addModule('counter', {
+            //   container: '#counter',
+            //   unit: 'word'
+            // });
+
             var quill = new Quill('#quill-editor', {
-                modules:{
-                    toolbar: false,
-                    mentions: {
-                        users: [{
-                                label: 'Aron',
-                                username: 'Aron Hunt'
-                            },
-                            {
-                                label: 'Bob',
-                                username: 'Bobby Johnson'
-                            },
-                            {
-                                label: 'Dennis',
-                                username: 'Dennis'
-                            },
-                            {
-                                label: 'Jef',
-                                username: 'Jef'
-                            },
-                            {
-                                label: 'Mark',
-                                username: 'Mark'
-                            },
-                            {
-                                label: 'Christrano Ronaldo',
-                                username: 'Christrano Ronaldo'
-                            }
-                        ]
-                    }
-                  },
-                  theme: 'snow'
+            modules:{
+                toolbar: false,
+                wordCount: {
+                    container: '#counter',
+                    unit: 'word'
+                }
+              },
+              theme: 'snow'
         });
-            
         </script>
     </body>
 </html>

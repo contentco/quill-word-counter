@@ -1,6 +1,6 @@
 {
   "name": "quill-word-counter",
-  "description": "Quill Extension for editor word count",
+  "description": "Quill Extension to calculate editor word count",
   "main": "webpack.config.js",
   "authors": [
     "contentco"
@@ -8,11 +8,11 @@
   "license": "MIT",
   "keywords": [
     "content",
-    "mentions",
+    "wordCount",
     "quill",
     "editor"
   ],
-  "homepage": "https://github.com/contentco/quill-mentions",
+  "homepage": "https://github.com/contentco/quill-word-counter",
   "ignore": [
     "**/.*",
     "node_modules",

@@ -1,30 +1,20 @@
-# Quill Mentions
+# Quill Word Count
 
-Custom module for [Quill.js](https://github.com/quilljs/quill) to allow mentions
+Custom module for [Quill.js](https://github.com/quilljs/quill) to calculate word count
 
 ## Usage
 ### Webpack/ES6
 
 ```javascript
 var quill = new Quill('#quill-editor', {
-        modules:{
-            mentions: {
-                users: [{
-                        label: 'Aron',
-                        username: 'Aron Hunt'
-                    },
-                    {
-                        label: 'Bob',
-                        username: 'Bobby Johnson'
-                    },
-                    {
-                        label: 'Dennis',
-                        username: 'Dennis'
-                    }
-                ]
-            }
-          },
-          theme: 'snow'
+            modules:{
+                toolbar: false,
+                wordCount: {
+                    container: '#counter',
+                    unit: 'word'
+                }
+              },
+              theme: 'snow'
 });
 ```
 

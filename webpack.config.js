@@ -3,10 +3,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const autoprefixer = requre('autoprefixer');
 
 const config = {
-    entry: './src/quill-mentions.js',
+    entry: './src/quill-word-count.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'quill-mentions.js'
+        filename: 'quill-word-count.js'
     },
     module: {
         rules: [{
@@ -38,7 +38,7 @@ const config = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('quill-mentions.css'),
+        new ExtractTextPlugin('quill-word-count.css'),
     ]
 };
 
