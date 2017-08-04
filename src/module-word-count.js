@@ -4,6 +4,7 @@ class WordCount {
         this.props = props;
         this.container = this.quill.container;
         this.quill.on('text-change', this.update.bind(this));
+        this.toolbar = quill.getModule('toolbar');
         this.update();  // Account for initial contents
     }
 
@@ -20,12 +21,12 @@ class WordCount {
         if (length !== 1) {
             label += 's';
         }
-
+        this.toolbar = this.quill.getModule('toolbar');
         let countView = document.getElementById('quill-word-count');
         if (!countView) {
             let countView = document.createElement('span');
             countView.id = 'quill-word-count';
-            this.container.appendChild(countView);
+            this.toolbar.container.appendChild(countView);
             countView.innerHTML = length + ' ' + label;
         }
         else{
